@@ -40,7 +40,16 @@ CToDoList::CToDoList()
 
     m_pwPending = new QListView(this);
 
+    /*Обеспечивает перетаскивание*/
+    m_pwPending->setDragEnabled(true);
 
+    /*Обеспечивает вставку и перемещение в области "Выполнить"*/
+    m_pwPending->setAcceptDrops(true);
+
+    m_pwPending->setDropIndicatorShown(true);
+
+    /*Обеспечивает перемещение строки из одной области в другую*/
+    m_pwPending->setDefaultDropAction(Qt::MoveAction);
 
     /*Добавляем виджет*/
     pHLayout->addWidget(m_pwPending);
@@ -49,7 +58,16 @@ CToDoList::CToDoList()
 
     m_pwCompleted = new QListView(this);
 
+    /*Обеспечивает перетаскивание*/
+    m_pwCompleted->setDragEnabled(true);
 
+    /*Обеспечивает вставку и перемещение в области "Выполнено"*/
+    m_pwCompleted->setAcceptDrops(true);
+
+    m_pwCompleted->setDropIndicatorShown(true);
+
+    /*Обеспечивает перемещение строки из одной области в другую*/
+    m_pwCompleted->setDefaultDropAction(Qt::MoveAction);
 
     /*Добавляем виджет*/
     pHLayout->addWidget(m_pwCompleted);
