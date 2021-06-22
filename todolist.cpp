@@ -41,6 +41,7 @@ CToDoList::CToDoList()
     m_pwPending = new QListView(this);
 
 
+
     /*Добавляем виджет*/
     pHLayout->addWidget(m_pwPending);
 
@@ -94,11 +95,20 @@ CToDoList::CToDoList()
 
 void CToDoList::onAdd()
 {
+    /*Определение строки и добавление ее в список*/
+    m_pwPending->model()->insertRow(m_pwPending->model()->rowCount());
+    QModelIndex oIndex = m_pwPending->model()->index(m_pwPending->model()->rowCount() - 1, 0);
+
+    /*Открытие строки для записи*/
+    m_pwPending->edit(oIndex);
 
 }
 
 
 void CToDoList::onRemove()
 {
+    /*Определение строки и удаление данной строки из списка*/
+    QModelIndex oIndex = m_pwPending->currentIndex();
+    m_pwPending->model()->removeRow(oIndex.row());
 
 }
